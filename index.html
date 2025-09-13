@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jeff — Portfolio</title>
+
+  <!-- Icons and styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- NOTE: keep style.css AFTER libraries so your styles override defaults -->
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <a href="#home" class="logo">JP</a>
+
+    <nav>
+      <!-- Use section IDs so smooth scroll + active nav works correctly -->
+      <a href="#home" class="active">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ===== HOME ===== -->
+  <section class="home" id="home">
+    <div class="home-img">
+      <!-- EDIT: replace main.jpg with your profile image file (match filename exactly) -->
+      <img src="Jeffrey.jpg" alt="Jeff portrait">
+    </div>
+
+    <div class="home-content">
+      <!-- EDIT: change the name below -->
+      <h1>Hi, I'm <span>Jeffrey Autentico</span></h1>
+
+      <!-- TYPING: JS will write into the span. Keep the class="typed" -->
+      <h3 class="typing-text">I'm a <span class="typed"></span><span class="typing-cursor" aria-hidden="true"></span></h3>
+
+      <!-- EDIT: change this paragraph text freely -->
+      <p>A junior web developer who knows HTML, CSS & JavaScript (Front-End).</p>
+
+      <div class="social-icons">
+        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="#" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+
+      <a href="hire-response.html" class="btn">Hire me</a>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects" class="projects-section">
+    <div class="projects-header">
+      <!-- EDIT: change heading -->
+      <h2>My Projects</h2>
+      <p class="muted">A curated showcase of responsive web apps highlighting UI design, interactive features, and real-world integrations.</p>
+    </div>
+
+    <div class="projects-grid">
+      <!-- Project 1 -->
+      <article class="project-card">
+        <div class="project-thumb">
+          <!-- EDIT: replace project1.png with your image (use exact filename, case-sensitive on servers) -->
+          <img src="project1.png" alt="English Language Learning App screenshot">
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">English Language Learning App — <span class="small-muted">Web App</span></h3>
+          <p class="project-desc">Interactive lessons, quizzes, and progress tracking designed for language learners of all levels. Features adaptive exercises and a friendly UI.</p>
+          <div class="project-meta">
+            <div class="project-tags">Tech: Figma • HTML • CSS</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="project-card">
+        <div class="project-thumb">
+          <img src="project2.jpg" alt="Microsoft 365 Blog screenshot">
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Microsoft 365 Blog — <span class="small-muted">UI / Design</span></h3>
+          <p class="project-desc">Tips, tutorials, and best practices for maximizing productivity with Microsoft 365 tools. Includes easy-to-follow guides and embedded demos.</p>
+          <div class="project-meta">
+            <div class="project-tags">Tech: HTML • CSS • JavaScript</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="project-card">
+        <div class="project-thumb">
+          <img src="project3.png" alt="Personal Portfolio screenshot">
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Personal Portfolio — <span class="small-muted">Interactive</span></h3>
+          <p class="project-desc">A responsive portfolio site showcasing my projects, skills, and contact information in a polished layout. Built with accessibility in mind.</p>
+          <div class="project-meta">
+            <div class="project-tags">Tech: HTML • CSS • JavaScript</div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+<section id="contact" class="contact-section">
+  <div class="contact-inner">
+    <div class="contact-header">
+      <h2>Contact Me</h2>
+      <p class="muted">Have a project, question or want to collaborate? Send a message — I usually reply within a few days.</p>
+    </div>
+
+    <div class="contact-grid">
+      <!-- Left: contact info (you can edit) -->
+      <div class="contact-info">
+        <h3>Get in touch</h3>
+        <p class="muted">Email me or use the form — your message goes straight to my inbox.</p>
+
+        <ul class="contact-list">
+          <li><strong>Email:</strong> <a href="mailto:your.email@example.com">your.email@example.com</a></li>
+          <li><strong>Location:</strong> City, Country</li>
+          <li><strong>Availability:</strong> Freelance / Part-time</li>
+        </ul>
+
+        <div class="social-icons contact-social">
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+
+      <!-- Right: contact form -->
+      <div class="contact-form-wrap">
+        <form id="contact-form" class="contact-form" novalidate>
+          <!-- hidden honeypot field to deter spam bots -->
+          <input type="text" name="website" id="hp-website" class="hp-field" autocomplete="off" tabindex="-1" aria-hidden="true">
+
+          <div class="form-row">
+            <label for="name">Your name</label>
+            <input id="name" name="name" type="text" class="form-control" placeholder="Your full name" required>
+          </div>
+
+          <div class="form-row">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" class="form-control" placeholder="you@domain.com" required>
+          </div>
+
+          <div class="form-row">
+            <label for="subject">Subject (optional)</label>
+            <input id="subject" name="subject" type="text" class="form-control" placeholder="Subject">
+          </div>
+
+          <div class="form-row">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" class="form-control" placeholder="Write your message..." required></textarea>
+          </div>
+
+          <div class="form-row form-actions">
+            <button type="submit" class="btn">Send message</button>
+            <div id="contact-status" role="status" aria-live="polite"></div>
+          </div>
+
+          <div class="form-note muted">
+            By sending this message you agree to be contacted. If you prefer, you can also email me directly at <a href="mailto:your.email@example.com">your.email@example.com</a>.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="skills-section">
+  <div class="projects-header">
+    <h2>Skills</h2>
+    <p class="muted">Core skills I use when building projects, offering services, and learning new tools.</p>
+  </div>
+
+  <!-- inline small styles scoped to this section so it blends with your existing theme -->
+  <style>
+    #skills .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 2.2rem;
+      margin-top: 2.4rem;
+    }
+    @media (max-width: 780px) {
+      #skills .skills-grid { grid-template-columns: 1fr; }
+    }
+
+    #skills .skill-item {
+      background-color: rgba(255,255,255,0.02);
+      padding: 1.6rem;
+      border-radius: 1.2rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    #skills .skill-top {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap: 1rem;
+    }
+    #skills .skill-name { font-weight:600; font-size:1.6rem; }
+    #skills .skill-level-text { font-size:1.3rem; color: rgba(255,255,255,0.75); }
+
+    /* progress bar */
+    #skills .skill-bar {
+      height: 0.9rem;
+      background: rgba(255,255,255,0.06);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    #skills .skill-fill {
+      height:100%;
+      border-radius: 10px;
+      background: linear-gradient(90deg, #b74b4b, #ff7a7a);
+      box-shadow: 0 4px 16px rgba(183,75,75,0.18);
+    }
+
+    /* small note */
+    #skills .skills-note { margin-top:1.2rem; color: rgba(255,255,255,0.75); font-size:1.4rem; }
+  </style>
+
+  <div class="skills-grid">
+    <!-- Web & frontend -->
+    <div class="skill-item">
+      <div class="skill-top">
+        <div class="skill-name">HTML &amp; CSS</div>
+        <div class="skill-level-text">85%</div>
+      </div>
+      <div class="skill-bar" aria-hidden="true">
+        <div class="skill-fill" style="width:85%"></div>
+      </div>
+      <div class="skills-note">Responsive markup, layout, and styling for this portfolio.</div>
+    </div>
+
+    <div class="skill-item">
+      <div class="skill-top">
+        <div class="skill-name">JavaScript</div>
+        <div class="skill-level-text">80%</div>
+      </div>
+      <div class="skill-bar">
+        <div class="skill-fill" style="width:80%"></div>
+      </div>
+      <div class="skills-note">Client-side behavior, form validation, and DOM interactions.</div>
+    </div>
+
+    <!-- Backend / programming -->
+    <div class="skill-item">
+      <div class="skill-top">
+        <div class="skill-name">Java &amp; Android</div>
+        <div class="skill-level-text">75%</div>
+      </div>
+      <div class="skill-bar">
+        <div class="skill-fill" style="width:75%"></div>
+      </div>
+      <div class="skills-note">Android Studio experience and Java fundamentals from coursework/projects.</div>
+    </div>
+
+    <div class="skill-item">
+      <div class="skill-top">
+        <div class="skill-name">Web Development</div>
+        <div class="skill-level-text">80%</div>
+      </div>
+      <div class="skill-bar">
+        <div class="skill-fill" style="width:80%"></div>
+      </div>
+      <div class="skills-note">Building small web apps, portfolio pages, and integrating UI/UX patterns.</div>
+    </div>
+
+    <!-- Creative & soft -->
+    <div class="skill-item">
+      <div class="skill-top">
+        <div class="skill-name">Graphic Design</div>
+        <div class="skill-level-text">60%</div>
+      </div>
+      <div class="skill-bar">
+        <div class="skill-fill" style="width:60%"></div>
+      </div>
+      <div class="skills-note">Design basics for social media and product visuals — learning tools & layouts.</div>
+    </div>
+
+
+</div> <!-- End of skills-grid -->
+
+<section id="education" class="education-section">
+    <div class="projects-header">
+        <h2>Education</h2>
+        <p class="muted">Academic background and current journey.</p>
+    </div>
+
+    <style>
+        /* Give the skills section breathing room when linked to (prevents content from sticking under a fixed header)
+           and slightly increase a few text sizes for readability. These rules are placed here so they load after
+           the inline styles in the skills section and will take precedence. */
+        #skills {
+            scroll-margin-top: 88px; /* space when jumping to the anchor */
+            padding-top: 1.6rem;     /* visual spacing from previous content */
+        }
+        @media (min-width: 780px) {
+            #skills { padding-top: 2.4rem; }
+        }
+
+        /* Slight readable size adjustments (subtle) */
+        #skills .skill-name { font-size: 1.72rem; }
+        #skills .skill-level-text { font-size: 1.36rem; color: rgba(255,255,255,0.78); }
+        #skills .skills-note { font-size: 1.46rem; }
+
+        /* Education styles (original, with slight size bumps) */
+        #education .timeline {
+            margin-top: 2.4rem;
+            position: relative;
+            padding-left: 2rem;
+            border-left: 3px solid #b74b4b;
+        }
+        #education .edu-item {
+            margin-bottom: 2.8rem;
+            position: relative;
+            background: rgba(255,255,255,0.04);
+            padding: 1.2rem 1.6rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 12px rgba(183,75,75,0.08);
+        }
+        #education .edu-item::before {
+            content: "";
+            position: absolute;
+            left: -1.25rem;
+            top: 1.2rem;
+            width: 1.2rem;
+            height: 1.2rem;
+            border-radius: 50%;
+            background: #b74b4b;
+            box-shadow: 0 0 10px rgba(183,75,75,0.8);
+        }
+        #education .edu-title {
+            font-size: 1.95rem; /* slightly larger */
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: #fff;
+        }
+        #education .edu-school {
+            font-size: 1.6rem; /* slightly larger */
+            font-weight: 500;
+            color: #ffd6d6;
+            margin-bottom: 0.2rem;
+        }
+        #education .edu-details {
+            font-size: 1.36rem; /* slightly larger */
+            color: #ffeaea;
+            margin-top: 0.3rem;
+            line-height: 1.6;
+        }
+        @media (max-width: 780px) {
+            #education .timeline { padding-left: 0.8rem; }
+            #education .edu-item { padding: 1rem; }
+        }
+    </style>
+
+    <div class="timeline">
+        <div class="edu-item">
+            <div class="edu-title">Bachelor of Science in Information Technology</div>
+            <div class="edu-school">St. Johnpaul II College of Davao</div>
+            <div class="edu-details">3rd Year Undergraduate Student</div>
+            <div class="edu-details">Building a strong foundation in programming, web development, and IT solutions. Actively involved in hands-on projects and collaborative learning.</div>
+        </div>
+    </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="backToTop" class="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+
+
+  <!-- Placeholder sections so nav anchors exist (you can replace content) -->
+  <section id="experience" style="display:none;"></section>
+  <section id="contact" style="display:none;"></section>
+  
+  <!-- Your JS (typing effect, mobile toggle, smooth scroll) -->
+  <script src="script.js"></script>
+</body>
+</html>

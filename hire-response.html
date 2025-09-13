@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Request Received — Jeff</title>
+
+  <!-- reuse your styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* page-specific tweaks — do NOT change body layout */
+    main.hire-main {
+      /* give room for fixed header (header in style.css is fixed) */
+      padding-top: 9.6rem; /* adjust if header size differs */
+      padding-left: 9%;
+      padding-right: 9%;
+      min-height: calc(100vh - 9.6rem);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* small responsive tweak for narrow screens */
+    @media (max-width: 640px){
+      main.hire-main { padding-top: 7.2rem; padding-left: 4rem; padding-right: 4rem; }
+      .hire-card { padding: 1.6rem; }
+      .hire-card h3 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- re-use your same header so users can navigate back -->
+  <header>
+    <a href="index.html" class="logo">JP</a>
+    <nav>
+      <a href="index.html#home">Home</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#education">Education</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="index.html#contact" class="active">Contact</a>
+    </nav>
+  </header>
+
+  <main class="hire-main" role="main">
+    <!-- NOTE: aria-hidden="false" is required because your CSS hides .hire-response by default -->
+    <section class="hire-response" aria-hidden="false" aria-live="polite">
+      <div class="hire-card">
+        <div class="hire-icon" aria-hidden="true">
+          <i class="fa-solid fa-circle-check" style="font-size:1.8rem"></i>
+        </div>
+
+        <h3>Thanks — Request received!</h3>
+        <p>Thanks for reaching out! I’ve received your hire request and will review the details. I’ll contact you as soon as possible to discuss next steps.</p>
+
+        <div class="hire-actions" style="margin-top:1.4rem;">
+          <a href="index.html#contact" class="btn">Open contact on my portfolio</a>
+          <a href="index.html" class="btn outline">Back to portfolio</a>
+        </div>
+
+        <p style="margin-top:1rem; color: rgba(255,255,255,0.75);">
+          If you included your email, I’ll reply to that address. Or email me directly at
+          <a href="mailto:your.email@example.com">your.email@example.com</a>.
+        </p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
