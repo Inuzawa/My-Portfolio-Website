@@ -11,11 +11,11 @@
   <style>
     /* page-specific tweaks — do NOT change body layout */
     main.hire-main {
-      /* give room for fixed header (header in style.css is fixed) */
-      padding-top: 9.6rem; /* adjust if header size differs */
-      padding-left: 9%;
-      padding-right: 9%;
-      min-height: calc(100vh - 9.6rem);
+      /* header is now in normal flow, reduce the top padding so content sits naturally */
+        padding-top: 3.2rem;
+        padding-left: 9%;
+        padding-right: 9%;
+        min-height: calc(100vh - 3.2rem);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -32,7 +32,7 @@
 <body>
   <!-- re-use your same header so users can navigate back -->
   <header>
-    <a href="index.html" class="logo">JP</a>
+    <a href="index.html" class="logo">AP</a>
     <nav>
       <a href="index.html#home">Home</a>
       <a href="index.html#projects">Projects</a>

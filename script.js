@@ -63,8 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
       menuBtn.setAttribute('aria-expanded', String(!expanded));
       nav.classList.toggle('active');
-      // optional: toggle body scroll lock
-      document.body.classList.toggle('no-scroll');
+      // Do NOT lock body scroll on mobile — allow the user to scroll while the nav is open
     });
 
     // close nav when a link is clicked (mobile)
@@ -73,10 +72,23 @@ document.addEventListener('DOMContentLoaded', () => {
         if (nav.classList.contains('active')) {
           nav.classList.remove('active');
           menuBtn.setAttribute('aria-expanded', 'false');
-          document.body.classList.remove('no-scroll');
+          // allow normal scrolling (no-op since we don't lock it)
         }
       });
     });
+
+    // Close mobile nav when user scrolls or touches (useful on Android where you may want to scroll while nav is open)
+    const closeNavIfOpen = () => {
+      if (nav.classList.contains('active')) {
+        nav.classList.remove('active');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      }
+    };
+
+    // Close on wheel/scroll/touchmove — passive listeners for smoothness
+    window.addEventListener('scroll', closeNavIfOpen, { passive: true });
+    window.addEventListener('wheel', closeNavIfOpen, { passive: true });
+    window.addEventListener('touchmove', closeNavIfOpen, { passive: true });
   }
 
   /* ---------- Smooth scroll & active nav ---------- */

@@ -16,29 +16,39 @@ body{
   width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
-  background-color: black;
-  color: #ffffff;
+  /* Use CSS variables for centralized color theming */
+  background-color: var(--page-bg);
+  color: var(--text-primary);
+}
+
+/* Color system: dark theme with improved contrast */
+:root{
+  --page-bg: #0b0c0f;           /* deep but not pure black to reduce harshness */
+  --panel-bg: rgba(255,255,255,0.03); /* subtle card background */
+  --muted: rgba(255,255,255,0.72);     /* readable muted text */
+  --text-primary: #f5f5f7;     /* main text color (near-white) */
+  --accent: #d95b5b;          /* warm red accent (works with your brand) */
+  --accent-strong: #b74b4b;   /* stronger accent already used in design */
+  --border: rgba(255,255,255,0.06); /* visible but soft borders */
+  --shadow: rgba(2,8,18,0.7);
 }
 
 /* Header */
 header{
   margin-top: 20px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  /* keep header in normal flow so it only appears at the top and does not follow scrolling */
+  position: static;
   padding: 1rem 9%;
   background-color: transparent;
   /* filter: drop-shadow(10px);   <-- drop-shadow needs arguments; left removed */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 100;
 }
 
 .logo{
   font-size: 3rem;
-  color: #b74b4b;
+  color: var(--accent-strong);
   font-weight: 800;
   cursor: pointer;
   transition: 0.5s ease;
@@ -50,19 +60,19 @@ header{
 .menu-btn{
   display: none;
   background: transparent;
-  color: #ffffff;
+  color: var(--text-primary);
   font-size: 2.2rem;
   cursor: pointer;
   border-radius: 6px;
   padding: 0.35rem 0.6rem;
-  border: 2px solid rgba(255,255,255,0.04);
+  border: 2px solid var(--border);
 }
 .menu-btn:focus{ outline: 2px dashed rgba(183,75,75,0.4); }
 
 /* Nav */
 nav a{
   font-size: 1.8rem;
-  color: #ffffff;
+  color: var(--text-primary);
   margin-left: 4rem;
   font-weight: 500;
   transition: 0.3s ease;
@@ -71,26 +81,27 @@ nav a{
 
 nav a:hover,
 nav a.active{
-  color: #b74b4b;
-  border-bottom: 3px solid #b74b4b;
+  color: var(--accent-strong);
+  border-bottom: 3px solid var(--accent-strong);
 }
 
 /* Responsive nav (your original approach preserved) */
 @media(max-width:995px){
   .menu-btn{ display: block; }
-
+  /* mobile nav overlay - only applies to narrow screens */
   nav{
-    position: absolute;
+    position: fixed;
     display: none;
     top: 0;
     right: 0;
-    width: 60%;
-    border-left: 3px solid #b74b4b;
-    border-bottom: 3px solid #b74b4b;
-    border-bottom-left-radius: 2rem;
-    padding: 2.4rem 1.6rem;
-    background-color: #161616;
-    border-top: 0.1rem solid rgba(0,0,0,0.1);
+    height: 100vh;
+    width: 75%;
+    padding: 3.6rem 1.6rem;
+    background-color: var(--page-bg);
+    border-left: 3px solid var(--accent-strong);
+    z-index: 10000;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.6);
+    overflow-y: auto;
   }
 
   nav.active{ display: block; }
@@ -109,6 +120,18 @@ nav a.active{
   }
 }
 
+/* body lock when mobile nav open */
+.no-scroll{ overflow: hidden; }
+
+/* Small-screen header adjustments: smaller padding and stacked layout */
+@media (max-width: 640px){
+  header{ padding: .8rem 4%; margin-top: 12px; }
+  .logo{ font-size: 2.4rem; }
+  nav a{ margin-left: 1.6rem; font-size: 1.6rem; }
+  .menu-btn{ font-size: 1.9rem; }
+  section{ padding: 4rem 4% 4rem; }
+}
+
 section{
   min-height: 100vh;
   padding: 5rem 9% 5rem;
@@ -120,7 +143,7 @@ section{
   justify-content: center;
   align-items: center;
   gap: 8rem;
-  background-color: black;
+  background-color: var(--page-bg);
 }
 
 /* Headline styles */
@@ -141,7 +164,7 @@ span{ color: #b74b4b; }
 /* Ensure paragraph contrast is strong */
 .home-content p{
   font-size: 1.6rem;
-  color: rgba(255,255,255,0.92);
+  color: var(--muted);
   line-height: 1.6;
 }
 
@@ -151,7 +174,7 @@ span{ color: #b74b4b; }
   position: relative;
   width: 32vw;
   border-radius: 50%;
-  box-shadow: 0 0 25px #b74b4b;
+  box-shadow: 0 0 25px var(--accent-strong);
   cursor: pointer;
   transition: transform 0.2s linear, box-shadow 0.2s linear;
 }
@@ -167,39 +190,39 @@ span{ color: #b74b4b; }
   width: 4rem;
   height: 4rem;
   background-color: transparent;
-  border: 0.2rem solid #b74b4b;
+  border: 0.2rem solid var(--accent-strong);
   font-size: 2rem;
   border-radius: 50%;
   margin: 3rem 1.5rem 3rem 0;
   transition: 0.3s ease;
-  color: #b74b4b;
+  color: var(--accent-strong);
 }
 .social-icons a:hover{
-  color: black;
+  color: var(--page-bg);
   transform: scale(1.3) translateY(-5px);
-  background-color: #b74b4b;
-  box-shadow: 0 0 25px #b74b4b;
+  background-color: var(--accent-strong);
+  box-shadow: 0 0 25px var(--accent-strong);
 }
 
 /* Button */
 .btn{
   display: inline-block;
   padding: 1rem 2.8rem;
-  background-color: black;
+  background-color: var(--page-bg);
   border-radius: 4rem;
   font-size: 1.6rem;
-  color: #b74b4b;
+  color: var(--accent-strong);
   letter-spacing: 0.3rem;
   font-weight: 600;
-  border: 2px solid #b74b4b;
+  border: 2px solid var(--accent-strong);
   transition: 0.3s ease;
   cursor: pointer;
 }
 .btn:hover{
   transform: scale3d(1.03,1.03,1);
-  background-color: #b74b4b;
-  color: black;
-  box-shadow: 0 0 25px #b74b4b;
+  background-color: var(--accent-strong);
+  color: var(--page-bg);
+  box-shadow: 0 0 25px var(--accent-strong);
 }
 
 /* TYPING effect: CSS cursor only; actual text inserted by JS */
@@ -212,7 +235,7 @@ span{ color: #b74b4b; }
   gap: 0.6rem;
 }
 .typing-text .typed{
-  color: #b74b4b;
+  color: var(--accent-strong);
   font-weight: 700;
   white-space: nowrap;
 }
@@ -222,7 +245,7 @@ span{ color: #b74b4b; }
   display: inline-block;
   width: 3px;
   height: 1.1em;
-  background: #b74b4b;
+  background: var(--accent-strong);
   animation: blink 0.8s steps(1) infinite;
 }
 @keyframes blink{
@@ -255,17 +278,17 @@ span{ color: #b74b4b; }
 .projects-section{
   padding: 6rem 9%;
   background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 .projects-header h2{
   font-size: 3.6rem;
   margin-bottom: 0.6rem;
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 .projects-header .muted{
-  color: rgba(255,255,255,0.7);
+  color: var(--muted);
   margin-bottom: 2.6rem;
   font-size: 1.45rem;
 }
@@ -280,34 +303,46 @@ span{ color: #b74b4b; }
 
 /* project card */
 .project-card{
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(255,255,255,0.03);
+  background: var(--panel-bg);
+  border: 1px solid var(--border);
   border-radius: 14px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   transition: transform .28s cubic-bezier(.2,.9,.3,1), box-shadow .28s;
-  box-shadow: 0 6px 20px rgba(2,8,18,0.6);
+  box-shadow: 0 6px 20px var(--shadow);
 }
 
-.project-card:hover{
-  transform: translateY(-10px);
-  box-shadow: 0 22px 48px rgba(2,8,18,0.72);
-}
-
-/* image */
+/* Project thumbnail: keep a consistent height so very tall images don't stretch cards */
 .project-thumb{
   width: 100%;
-  height: 220px; /* slightly taller to show image nicely */
+  height: 220px; /* desktop visual height — matches previous design */
   overflow: hidden;
-  background: #0d0d0d;
+  background: var(--page-bg);
 }
 .project-thumb img{
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* crop and fill the thumbnail area */
   display: block;
-  transition: transform .35s ease;
+}
+
+.project-card:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 22px 48px var(--shadow);
+}
+
+/* Header */
+header{
+  margin-top: 20px;
+  /* keep header in normal flow but allow stacking above content when needed */
+  position: relative;
+  padding: 1rem 9%;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 9999; /* ensure header sits above page content */
 }
 .project-card:hover .project-thumb img{
   transform: scale(1.05);
@@ -325,19 +360,19 @@ span{ color: #b74b4b; }
 .project-title{
   font-size: 1.6rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--text-primary);
   margin-bottom: 0.2rem;
 }
 
 .small-muted{
   font-weight: 600;
-  color: rgba(255,255,255,0.65);
+  color: var(--muted);
   font-size: 1.2rem;
   margin-left: 0.6rem;
 }
 
 .project-desc{
-  color: rgba(255,255,255,0.85);
+  color: var(--muted);
   font-size: 1.4rem;
   line-height: 1.5;
   margin-top: 0.4rem;
@@ -358,11 +393,16 @@ span{ color: #b74b4b; }
   .projects-grid{
     grid-template-columns: repeat(2, 1fr);
   }
+  /* slightly shorter thumbnails on tablet */
+  .project-thumb{ height: 200px; }
 }
 @media (max-width: 680px){
   .projects-grid{
     grid-template-columns: 1fr;
   }
+
+  /* mobile: make thumbnails taller to suit stacked layout but not too tall */
+  .project-thumb{ height: 260px; }
 
   .projects-section{ padding: 4rem 5%; }
   .projects-header h2{ font-size: 2.8rem; }
@@ -370,26 +410,6 @@ span{ color: #b74b4b; }
 
 
 /* ===== REPLACE your current .home rules with these ===== */
-
-.home{
-  display: flex;
-  justify-content: flex-start;   /* <- put items starting from the left */
-  align-items: center;
-  gap: 6rem;                     /* slightly reduced gap for better spacing */
-  background-color: black;
-  padding-left: 9%;              /* keep same left page padding as header */
-  padding-right: 9%;             /* preserve horizontal padding */
-  min-height: calc(100vh - 0px); /* keep full viewport height */
-}
-
-/* control widths so content sits nicely on left */
-.home-img{
-  flex: 0 0 260px;               /* fixed-ish image column */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 2.6rem;
-}
 
 .home-img img{
   width: 220px;                  /* fixed visual size for portrait */
@@ -437,7 +457,7 @@ span{ color: #b74b4b; }
 .contact-section{
   padding: 6rem 9%;
   background: linear-gradient(180deg, rgba(255,255,255,0.00), rgba(255,255,255,0.00));
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 .contact-inner{ max-width: 1200px; margin: 0 auto; }
@@ -445,9 +465,9 @@ span{ color: #b74b4b; }
 .contact-header h2{
   font-size: 3.2rem;
   margin-bottom: 0.4rem;
-  color: #ffffff;
+  color: var(--text-primary);
 }
-.contact-header .muted{ color: rgba(255,255,255,0.75); font-size: 1.4rem; margin-bottom: 2rem; }
+.contact-header .muted{ color: var(--muted); font-size: 1.4rem; margin-bottom: 2rem; }
 
 /* grid layout */
 .contact-grid{
@@ -462,17 +482,17 @@ span{ color: #b74b4b; }
   padding: 1.6rem 1.8rem;
 }
 .contact-info h3{ font-size: 1.6rem; margin-bottom: .8rem; color:#fff; }
-.contact-list{ list-style: none; padding: 0; margin: 1rem 0 1.6rem; color: rgba(255,255,255,0.9); font-size:1.25rem; }
+.contact-list{ list-style: none; padding: 0; margin: 1rem 0 1.6rem; color: var(--text-primary); font-size:1.25rem; }
 .contact-list li{ margin-bottom: .6rem; }
 .contact-social a{ margin-right: .8rem; }
 
 /* form wrapper */
 .contact-form-wrap{
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(255,255,255,0.03);
+  background: var(--panel-bg);
+  border: 1px solid var(--border);
   padding: 1.8rem;
   border-radius: 12px;
-  box-shadow: 0 8px 26px rgba(2,8,18,0.6);
+  box-shadow: 0 8px 26px var(--shadow);
 }
 
 /* form fields */
@@ -482,16 +502,16 @@ span{ color: #b74b4b; }
 .contact-form label{
   display:block;
   font-size: 1.15rem;
-  color: rgba(255,255,255,0.9);
+  color: var(--text-primary);
   margin-bottom: .4rem;
 }
 .form-control{
   width: 100%;
   padding: .9rem 1rem;
   border-radius: 8px;
-  background: rgba(255,255,255,0.02);
-  color: #ffffff;
-  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.015);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
   font-size: 1.25rem;
   transition: box-shadow .18s ease, border-color .18s ease;
 }
@@ -499,7 +519,7 @@ span{ color: #b74b4b; }
 .form-control:focus{
   outline: none;
   box-shadow: 0 0 0 4px rgba(183,75,75,0.08);
-  border-color: #b74b4b;
+  border-color: var(--accent-strong);
 }
 
 /* actions and status */
@@ -541,11 +561,11 @@ span{ color: #b74b4b; }
 .hire-card{
   max-width: 920px;
   margin: 1.4rem auto 3rem;
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(255,255,255,0.03);
+  background: var(--panel-bg);
+  border: 1px solid var(--border);
   padding: 2.2rem;
   border-radius: 14px;
-  box-shadow: 0 12px 40px rgba(2,8,18,0.6);
+  box-shadow: 0 12px 40px var(--shadow);
   text-align: center;
 }
 
@@ -556,7 +576,7 @@ span{ color: #b74b4b; }
   width:72px;height:72px;
   border-radius:50%;
   background:linear-gradient(180deg, rgba(183,75,75,0.12), rgba(183,75,75,0.08));
-  color:#b74b4b;
+  color: var(--accent-strong);
   font-size:2.6rem;
   margin-bottom: 1rem;
   box-shadow: 0 8px 26px rgba(183,75,75,0.06);
@@ -567,7 +587,7 @@ span{ color: #b74b4b; }
   margin-bottom: .6rem;
 }
 .hire-card p{
-  color: rgba(255,255,255,0.9);
+  color: var(--text-primary);
   font-size:1.25rem;
   margin-bottom:1rem;
 }
@@ -576,6 +596,8 @@ span{ color: #b74b4b; }
 .hire-actions{ display:flex; gap:1rem; justify-content:center; align-items:center; flex-wrap:wrap; margin-top:0.8rem;}
 .hire-actions .btn{ padding:.8rem 2rem; }
 .hire-actions .btn.outline{ background:transparent; border: 1.6px solid rgba(255,255,255,0.06); color:#fff; }
+/* tuned outline style using variables */
+.hire-actions .btn.outline{ background:transparent; border: 1.6px solid var(--border); color: var(--text-primary); }
 
 /* small screens: full width, simpler padding */
 @media (max-width: 900px){
@@ -593,8 +615,8 @@ span{ color: #b74b4b; }
   height:48px;
   border-radius: 50%;
   border: 2px solid rgba(183,75,75,0.15);
-  background: rgba(0,0,0,0.6);
-  color: #b74b4b;
+  background: rgba(255,255,255,0.02);
+  color: var(--accent-strong);
   font-size: 1.6rem;
   display: inline-flex;
   align-items: center;

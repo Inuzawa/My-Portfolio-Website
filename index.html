@@ -15,7 +15,9 @@
 
   <!-- ===== HEADER ===== -->
   <header>
-    <a href="#home" class="logo">JP</a>
+    <a href="#home" class="logo">AP</a>
+    <!-- Mobile menu toggle (added so the mobile menu works) -->
+    <button class="menu-btn" aria-expanded="false" aria-label="Toggle menu">☰</button>
 
     <nav>
       <!-- Use section IDs so smooth scroll + active nav works correctly -->
@@ -23,7 +25,6 @@
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#education">Education</a>
-      <a href="#experience">Experience</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -110,73 +111,6 @@
     </div>
 
   </section>
-
-  <!-- ===== CONTACT ===== -->
-<section id="contact" class="contact-section">
-  <div class="contact-inner">
-    <div class="contact-header">
-      <h2>Contact Me</h2>
-      <p class="muted">Have a project, question or want to collaborate? Send a message — I usually reply within a few days.</p>
-    </div>
-
-    <div class="contact-grid">
-      <!-- Left: contact info (you can edit) -->
-      <div class="contact-info">
-        <h3>Get in touch</h3>
-        <p class="muted">Email me or use the form — your message goes straight to my inbox.</p>
-
-        <ul class="contact-list">
-          <li><strong>Email:</strong> <a href="mailto:your.email@example.com">your.email@example.com</a></li>
-          <li><strong>Location:</strong> City, Country</li>
-          <li><strong>Availability:</strong> Freelance / Part-time</li>
-        </ul>
-
-        <div class="social-icons contact-social">
-          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-          <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        </div>
-      </div>
-
-      <!-- Right: contact form -->
-      <div class="contact-form-wrap">
-        <form id="contact-form" class="contact-form" novalidate>
-          <!-- hidden honeypot field to deter spam bots -->
-          <input type="text" name="website" id="hp-website" class="hp-field" autocomplete="off" tabindex="-1" aria-hidden="true">
-
-          <div class="form-row">
-            <label for="name">Your name</label>
-            <input id="name" name="name" type="text" class="form-control" placeholder="Your full name" required>
-          </div>
-
-          <div class="form-row">
-            <label for="email">Email address</label>
-            <input id="email" name="email" type="email" class="form-control" placeholder="you@domain.com" required>
-          </div>
-
-          <div class="form-row">
-            <label for="subject">Subject (optional)</label>
-            <input id="subject" name="subject" type="text" class="form-control" placeholder="Subject">
-          </div>
-
-          <div class="form-row">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="6" class="form-control" placeholder="Write your message..." required></textarea>
-          </div>
-
-          <div class="form-row form-actions">
-            <button type="submit" class="btn">Send message</button>
-            <div id="contact-status" role="status" aria-live="polite"></div>
-          </div>
-
-          <div class="form-note muted">
-            By sending this message you agree to be contacted. If you prefer, you can also email me directly at <a href="mailto:your.email@example.com">your.email@example.com</a>.
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section id="skills" class="skills-section">
   <div class="projects-header">
@@ -296,95 +230,196 @@
 </div> <!-- End of skills-grid -->
 
 <section id="education" class="education-section">
-    <div class="projects-header">
-        <h2>Education</h2>
-        <p class="muted">Academic background and current journey.</p>
+  <div class="projects-header" style="text-align:center;">
+    <h2>Education</h2>
+    <p class="muted">My academic background and current studies.</p>
+  </div>
+
+  <style>
+    /* Scoped styles for the education block (logo now allowed to show at natural size) */
+    #education { margin-top: 2.4rem; }
+    #education .edu-card {
+      max-width: 980px;
+      margin: 2.4rem auto;
+      padding: 2.2rem;
+      border-radius: 1.2rem;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 1px solid rgba(183,75,75,0.06);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.55);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+      text-align: center;
+    }
+
+    /* Logo container: does NOT force a fixed box — it centers the image and allows natural size */
+    #education .edu-logo {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: linear-gradient(135deg,#b74b4b,#ff7a7a);
+      color:#fff;
+      font-weight:800;
+      box-shadow: 0 10px 30px rgba(183,75,75,0.18);
+      padding: 0.4rem;
+      border-radius: 18px;
+    }
+
+    /* Image: let it render at its natural dimensions, but restrict to a generous max for very large files */
+    #education .edu-logo img {
+      display:block;
+      width: auto;        /* allow natural width */
+      height: auto;       /* allow natural height */
+      max-width: 99%;    /* never overflow the card */
+      max-height: 900px;  /* prevents absurdly large images — increase if you want bigger */
+    }
+
+    /* placeholder initials shown only when image fails */
+    #education .edu-logo .placeholder {
+      display:none;
+      width: 220px;
+      height: 220px;
+      border-radius: 12px;
+      align-items:center;
+      justify-content:center;
+      font-size:3.4rem;
+      background: linear-gradient(135deg,#b74b4b,#ff7a7a);
+      color:#fff;
+      font-weight:800;
+    }
+
+    /* title + meta */
+    #education .edu-title { font-size:2.0rem; font-weight:700; margin-top:0.6rem; }
+    #education .edu-meta { color: rgba(255,255,255,0.78); font-size:1.35rem; margin-bottom:0.4rem; }
+
+    /* status badge */
+    #education .badge {
+      display:inline-block;
+      margin-top:0.25rem;
+      padding:0.4rem 0.8rem;
+      border-radius:999px;
+      background: rgba(183,75,75,0.12);
+      color:#ffbdbd;
+      font-weight:600;
+      font-size:1.1rem;
+      border: 1px solid rgba(183,75,75,0.06);
+    }
+
+    /* description & list */
+    #education .edu-body { color: rgba(255,255,255,0.88); font-size:1.45rem; line-height:1.6; margin-top:0.6rem; }
+    #education .edu-list { margin-top:0.8rem; color: rgba(255,255,255,0.78); font-size:1.35rem; list-style: none; padding-left:0; }
+    #education .edu-list li { margin:0.4rem 0; }
+
+    @media (max-width:820px) {
+      /* On narrow screens, reduce placeholder/logo size so layout stays nice */
+      #education .edu-logo .placeholder { width:160px; height:160px; font-size:2.6rem; }
+      #education .edu-card { padding:1.4rem; margin:1.6rem; }
+      #education .edu-title { font-size:1.6rem; }
+      #education .edu-body { font-size:1.35rem; }
+    }
+  </style>
+
+  <article class="edu-card" aria-labelledby="edu-title-1">
+    <div class="edu-logo" aria-hidden="false">
+      <!-- Replace src if your file path differs. The onerror fallback shows placeholder initials. -->
+      <img src="sjp2cd.webp" alt="SJPIICD logo"
+           onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
+      <div class="placeholder" aria-hidden="true" style="display:none;">SJ</div>
     </div>
 
-    <style>
-        /* Give the skills section breathing room when linked to (prevents content from sticking under a fixed header)
-           and slightly increase a few text sizes for readability. These rules are placed here so they load after
-           the inline styles in the skills section and will take precedence. */
-        #skills {
-            scroll-margin-top: 88px; /* space when jumping to the anchor */
-            padding-top: 1.6rem;     /* visual spacing from previous content */
-        }
-        @media (min-width: 780px) {
-            #skills { padding-top: 2.4rem; }
-        }
-
-        /* Slight readable size adjustments (subtle) */
-        #skills .skill-name { font-size: 1.72rem; }
-        #skills .skill-level-text { font-size: 1.36rem; color: rgba(255,255,255,0.78); }
-        #skills .skills-note { font-size: 1.46rem; }
-
-        /* Education styles (original, with slight size bumps) */
-        #education .timeline {
-            margin-top: 2.4rem;
-            position: relative;
-            padding-left: 2rem;
-            border-left: 3px solid #b74b4b;
-        }
-        #education .edu-item {
-            margin-bottom: 2.8rem;
-            position: relative;
-            background: rgba(255,255,255,0.04);
-            padding: 1.2rem 1.6rem;
-            border-radius: 1rem;
-            box-shadow: 0 4px 12px rgba(183,75,75,0.08);
-        }
-        #education .edu-item::before {
-            content: "";
-            position: absolute;
-            left: -1.25rem;
-            top: 1.2rem;
-            width: 1.2rem;
-            height: 1.2rem;
-            border-radius: 50%;
-            background: #b74b4b;
-            box-shadow: 0 0 10px rgba(183,75,75,0.8);
-        }
-        #education .edu-title {
-            font-size: 1.95rem; /* slightly larger */
-            font-weight: 600;
-            margin-bottom: 0.4rem;
-            color: #fff;
-        }
-        #education .edu-school {
-            font-size: 1.6rem; /* slightly larger */
-            font-weight: 500;
-            color: #ffd6d6;
-            margin-bottom: 0.2rem;
-        }
-        #education .edu-details {
-            font-size: 1.36rem; /* slightly larger */
-            color: #ffeaea;
-            margin-top: 0.3rem;
-            line-height: 1.6;
-        }
-        @media (max-width: 780px) {
-            #education .timeline { padding-left: 0.8rem; }
-            #education .edu-item { padding: 1rem; }
-        }
-    </style>
-
-    <div class="timeline">
-        <div class="edu-item">
-            <div class="edu-title">Bachelor of Science in Information Technology</div>
-            <div class="edu-school">St. Johnpaul II College of Davao</div>
-            <div class="edu-details">3rd Year Undergraduate Student</div>
-            <div class="edu-details">Building a strong foundation in programming, web development, and IT solutions. Actively involved in hands-on projects and collaborative learning.</div>
-        </div>
+    <div>
+      <div id="edu-title-1" class="edu-title">St. Johnpaul the College of Davao (SJPIICD)</div>
+      <div class="edu-meta">Bachelor of Science in Information Technology (BSIT) — 3rd Year (Regular)</div>
+      <div class="badge">Currently Enrolled</div>
     </div>
+
+    <div class="edu-body">
+      I am a 3rd year regular undergraduate student in BSIT at St. Johnpaul the College of Davao. My coursework focuses on programming fundamentals, web development, and tools for building apps.
+    </div>
+
+    <ul class="edu-list">
+      <li><strong>Program:</strong> BSIT — programming, web development, and system design</li>
+      <li><strong>Status:</strong> 3rd Year (Regular undergraduate)</li>
+      <li><strong>Institution:</strong> St. Johnpaul the College of Davao (SJPIICD)</li>
+    </ul>
+  </article>
 </section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="contact-section">
+  <div class="contact-inner">
+    <div class="contact-header">
+      <h2>Contact Me</h2>
+      <p class="muted">Have a project, question or want to collaborate? Send a message — I usually reply within a few days.</p>
+    </div>
+
+    <div class="contact-grid">
+      <!-- Left: contact info (you can edit) -->
+      <div class="contact-info">
+        <h3>Get in touch</h3>
+        <p class="muted">Email me or use the form — your message goes straight to my inbox.</p>
+
+        <ul class="contact-list">
+          <li><strong>Email:</strong> <a href="mailto:your.email@example.com">jeffrey_autentico@sjp2cd.edu.ph</a></li>
+          <li><strong>Location:</strong> Davao City</li>
+          <li><strong>Availability:</strong> Freelance / Part-time</li>
+        </ul>
+
+        <div class="social-icons contact-social">
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+
+      <!-- Right: contact form -->
+      <div class="contact-form-wrap">
+        <form id="contact-form" class="contact-form" novalidate>
+          <!-- hidden honeypot field to deter spam bots -->
+          <input type="text" name="website" id="hp-website" class="hp-field" autocomplete="off" tabindex="-1" aria-hidden="true">
+
+          <div class="form-row">
+            <label for="name">Your name</label>
+            <input id="name" name="name" type="text" class="form-control" placeholder="Your full name" required>
+          </div>
+
+          <div class="form-row">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" class="form-control" placeholder="you@domain.com" required>
+          </div>
+
+          <div class="form-row">
+            <label for="subject">Subject (optional)</label>
+            <input id="subject" name="subject" type="text" class="form-control" placeholder="Subject">
+          </div>
+
+          <div class="form-row">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" class="form-control" placeholder="Write your message..." required></textarea>
+          </div>
+
+          <div class="form-row form-actions">
+            <button type="submit" class="btn">Send message</button>
+            <div id="contact-status" role="status" aria-live="polite"></div>
+          </div>
+
+          <div class="form-note muted">
+            By sending this message you agree to be contacted. If you prefer, you can also email me directly at <a href="mailto:your.email@example.com">jeffrey_autentico@sjp2cd.edu.ph</a>.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <!-- BACK TO TOP BUTTON -->
 <button id="backToTop" class="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
 
 
   <!-- Placeholder sections so nav anchors exist (you can replace content) -->
-  <section id="experience" style="display:none;"></section>
-  <section id="contact" style="display:none;"></section>
+  <!-- removed duplicate #contact placeholder (actual contact section exists above) -->
   
   <!-- Your JS (typing effect, mobile toggle, smooth scroll) -->
   <script src="script.js"></script>
