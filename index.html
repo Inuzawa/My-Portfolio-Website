@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 
-  <!-- NOTE: keep style.css AFTER libraries so your styles override defaults -->
 </head>
 <body>
 
@@ -32,18 +31,14 @@
   <!-- ===== HOME ===== -->
   <section class="home" id="home">
     <div class="home-img">
-      <!-- EDIT: replace main.jpg with your profile image file (match filename exactly) -->
       <img src="Jeffrey.jpg" alt="Jeff portrait">
     </div>
 
     <div class="home-content">
-      <!-- EDIT: change the name below -->
       <h1>Hi, I'm <span>Jeffrey Autentico</span></h1>
 
-      <!-- TYPING: JS will write into the span. Keep the class="typed" -->
       <h3 class="typing-text">I'm a <span class="typed"></span><span class="typing-cursor" aria-hidden="true"></span></h3>
 
-      <!-- EDIT: change this paragraph text freely -->
       <p>A junior web developer who knows HTML, CSS & JavaScript (Front-End).</p>
 
       <div class="social-icons">
@@ -60,7 +55,6 @@
   <!-- ===== PROJECTS ===== -->
   <section id="projects" class="projects-section">
     <div class="projects-header">
-      <!-- EDIT: change heading -->
       <h2>My Projects</h2>
       <p class="muted">A curated showcase of responsive web apps highlighting UI design, interactive features, and real-world integrations.</p>
     </div>
@@ -69,7 +63,6 @@
       <!-- Project 1 -->
       <article class="project-card">
         <div class="project-thumb">
-          <!-- EDIT: replace project1.png with your image (use exact filename, case-sensitive on servers) -->
           <img src="project1.png" alt="English Language Learning App screenshot">
         </div>
         <div class="project-body">
@@ -118,7 +111,7 @@
     <p class="muted">Core skills I use when building projects, offering services, and learning new tools.</p>
   </div>
 
-  <!-- inline small styles scoped to this section so it blends with your existing theme -->
+  <!-- inline small styles scoped to this section so it blends with my existing theme -->
   <style>
     #skills .skills-grid {
       display: grid;
@@ -322,7 +315,6 @@
 
   <article class="edu-card" aria-labelledby="edu-title-1">
     <div class="edu-logo" aria-hidden="false">
-      <!-- Replace src if your file path differs. The onerror fallback shows placeholder initials. -->
       <img src="sjp2cd.webp" alt="SJPIICD logo"
            onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
       <div class="placeholder" aria-hidden="true" style="display:none;">SJ</div>
@@ -355,13 +347,12 @@
     </div>
 
     <div class="contact-grid">
-      <!-- Left: contact info (you can edit) -->
       <div class="contact-info">
         <h3>Get in touch</h3>
         <p class="muted">Email me or use the form — your message goes straight to my inbox.</p>
 
         <ul class="contact-list">
-          <li><strong>Email:</strong> <a href="mailto:your.email@example.com">jeffrey_autentico@sjp2cd.edu.ph</a></li>
+          <li><strong>Email:</strong> <a href="mailto:jeffrey_autentico@sjp2cd.edu.ph">jeffrey_autentico@sjp2cd.edu.ph</a></li>
           <li><strong>Location:</strong> Davao City</li>
           <li><strong>Availability:</strong> Freelance / Part-time</li>
         </ul>
@@ -405,7 +396,7 @@
           </div>
 
           <div class="form-note muted">
-            By sending this message you agree to be contacted. If you prefer, you can also email me directly at <a href="mailto:your.email@example.com">jeffrey_autentico@sjp2cd.edu.ph</a>.
+            By sending this message you agree to be contacted. If you prefer, you can also email me directly at <a href="mailto:jeffrey_autentico@sjp2cd.edu.ph">jeffrey_autentico@sjp2cd.edu.ph</a>.
           </div>
         </form>
       </div>
@@ -416,10 +407,6 @@
 
 <!-- BACK TO TOP BUTTON -->
 <button id="backToTop" class="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
-
-
-  <!-- Placeholder sections so nav anchors exist (you can replace content) -->
-  <!-- removed duplicate #contact placeholder (actual contact section exists above) -->
   
   <!-- Your JS (typing effect, mobile toggle, smooth scroll) -->
   <script src="script.js"></script>

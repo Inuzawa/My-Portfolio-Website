@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Close mobile nav when user scrolls or touches (useful on Android where you may want to scroll while nav is open)
+    // Close mobile nav when user scrolls or touches (useful on mobile where you may want to scroll while nav is open)
     const closeNavIfOpen = () => {
       if (nav.classList.contains('active')) {
         nav.classList.remove('active');
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const statusEl = document.getElementById('contact-status');
 
   // update this to your real email address (used in mailto fallback)
-  const RECEIVER_EMAIL = 'your.email@example.com';
+  const RECEIVER_EMAIL = 'jeffrey_autentico@sjp2cd.edu.ph';
 
   if (!contactForm) return;
 
@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const originalText = submitBtn.textContent;
     submitBtn.textContent = 'Sending...';
 
-    // simulate async send (no backend). Replace this block with real fetch() to your API if you have one.
+    // simulate async send (no backend).
     setTimeout(() => {
       // show success
       showStatus('Message ready — opening your mail app to send. If nothing happens, copy-paste your message into email.', 'success');

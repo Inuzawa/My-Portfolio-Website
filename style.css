@@ -271,10 +271,6 @@ span{ color: #b74b4b; }
    Projects section styles
    ------------------------ */
 
-/* ------------------------
-   Projects section styles (CLEANED)
-   ------------------------ */
-
 .projects-section{
   padding: 6rem 9%;
   background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
@@ -378,9 +374,6 @@ header{
   margin-top: 0.4rem;
 }
 
-/* remove project action / button styles (no buttons in projects) */
-/* previously used .project-meta, .project-links, .btn-sm removed */
-
 .projects-note{
   margin-top: 1.6rem;
   text-align: center;
@@ -408,8 +401,9 @@ header{
   .projects-header h2{ font-size: 2.8rem; }
 }
 
-
-/* ===== REPLACE your current .home rules with these ===== */
+/* ------------------------
+   Home section styles
+   ------------------------ */
 
 .home-img img{
   width: 220px;                  /* fixed visual size for portrait */
@@ -426,7 +420,7 @@ header{
   display: block;
 }
 
-/* keep your big typographic scale but ensure left alignment */
+/* keep big typographic scale but ensure left alignment */
 .home .home-content h1,
 .home .home-content h3,
 .home .home-content p{
